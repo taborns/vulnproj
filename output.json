@@ -1,0 +1,1856 @@
+[
+  [
+    "FunctionCall",
+    {
+      "lineno": 2,
+      "name": "session_start",
+      "params": []
+    }
+  ],
+  [
+    "Class",
+    {
+      "lineno": 4,
+      "name": "AuthController",
+      "type": null,
+      "extends": "Controller",
+      "implements": [],
+      "traits": [],
+      "nodes": [
+        [
+          "ClassVariables",
+          {
+            "lineno": 7,
+            "modifiers": [
+              "public"
+            ],
+            "nodes": [
+              [
+                "ClassVariable",
+                {
+                  "lineno": 7,
+                  "name": "$error",
+                  "initial": [
+                    "Constant",
+                    {
+                      "lineno": 7,
+                      "name": "NULL"
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ],
+        [
+          "ClassVariables",
+          {
+            "lineno": 8,
+            "modifiers": [
+              "public"
+            ],
+            "nodes": [
+              [
+                "ClassVariable",
+                {
+                  "lineno": 8,
+                  "name": "$msg",
+                  "initial": [
+                    "Constant",
+                    {
+                      "lineno": 8,
+                      "name": "NULL"
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        ],
+        [
+          "Method",
+          {
+            "lineno": 10,
+            "name": "index",
+            "modifiers": [
+              "public"
+            ],
+            "params": [
+              [
+                "FormalParameter",
+                {
+                  "lineno": 10,
+                  "name": "$name",
+                  "default": "",
+                  "is_ref": false,
+                  "type": null
+                }
+              ]
+            ],
+            "nodes": [
+              [
+                "Echo",
+                {
+                  "lineno": 12,
+                  "nodes": [
+                    "welcome to Auth"
+                  ]
+                }
+              ]
+            ],
+            "is_ref": false
+          }
+        ],
+        [
+          "Method",
+          {
+            "lineno": 15,
+            "name": "signup",
+            "modifiers": [
+              "public"
+            ],
+            "params": [],
+            "nodes": [
+              [
+                "Assignment",
+                {
+                  "lineno": 18,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 18,
+                      "name": "$username"
+                    }
+                  ],
+                  "expr": [
+                    "Constant",
+                    {
+                      "lineno": 18,
+                      "name": "NULL"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 19,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 19,
+                      "name": "$email"
+                    }
+                  ],
+                  "expr": [
+                    "Constant",
+                    {
+                      "lineno": 19,
+                      "name": "NULL"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 20,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 20,
+                      "name": "$password"
+                    }
+                  ],
+                  "expr": [
+                    "Constant",
+                    {
+                      "lineno": 20,
+                      "name": "NULL"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 21,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 21,
+                      "name": "$confirm_password"
+                    }
+                  ],
+                  "expr": [
+                    "Constant",
+                    {
+                      "lineno": 21,
+                      "name": "NULL"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "If",
+                {
+                  "lineno": 23,
+                  "expr": [
+                    "BinaryOp",
+                    {
+                      "lineno": 23,
+                      "op": "||",
+                      "left": [
+                        "BinaryOp",
+                        {
+                          "lineno": 23,
+                          "op": "||",
+                          "left": [
+                            "BinaryOp",
+                            {
+                              "lineno": 23,
+                              "op": "||",
+                              "left": [
+                                "UnaryOp",
+                                {
+                                  "lineno": 23,
+                                  "op": "!",
+                                  "expr": [
+                                    "IsSet",
+                                    {
+                                      "lineno": 23,
+                                      "nodes": [
+                                        [
+                                          "ArrayOffset",
+                                          {
+                                            "lineno": 23,
+                                            "node": [
+                                              "Variable",
+                                              {
+                                                "lineno": 23,
+                                                "name": "$_POST"
+                                              }
+                                            ],
+                                            "expr": "susername"
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "right": [
+                                "UnaryOp",
+                                {
+                                  "lineno": 23,
+                                  "op": "!",
+                                  "expr": [
+                                    "IsSet",
+                                    {
+                                      "lineno": 23,
+                                      "nodes": [
+                                        [
+                                          "ArrayOffset",
+                                          {
+                                            "lineno": 23,
+                                            "node": [
+                                              "Variable",
+                                              {
+                                                "lineno": 23,
+                                                "name": "$_POST"
+                                              }
+                                            ],
+                                            "expr": "semail"
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "right": [
+                            "UnaryOp",
+                            {
+                              "lineno": 23,
+                              "op": "!",
+                              "expr": [
+                                "IsSet",
+                                {
+                                  "lineno": 23,
+                                  "nodes": [
+                                    [
+                                      "ArrayOffset",
+                                      {
+                                        "lineno": 23,
+                                        "node": [
+                                          "Variable",
+                                          {
+                                            "lineno": 23,
+                                            "name": "$_POST"
+                                          }
+                                        ],
+                                        "expr": "spassword"
+                                      }
+                                    ]
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "right": [
+                        "UnaryOp",
+                        {
+                          "lineno": 23,
+                          "op": "!",
+                          "expr": [
+                            "IsSet",
+                            {
+                              "lineno": 23,
+                              "nodes": [
+                                [
+                                  "ArrayOffset",
+                                  {
+                                    "lineno": 23,
+                                    "node": [
+                                      "Variable",
+                                      {
+                                        "lineno": 23,
+                                        "name": "$_POST"
+                                      }
+                                    ],
+                                    "expr": "sconfirmpassword"
+                                  }
+                                ]
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 24,
+                      "nodes": [
+                        [
+                          "Echo",
+                          {
+                            "lineno": 25,
+                            "nodes": [
+                              "not set"
+                            ]
+                          }
+                        ],
+                        [
+                          "Return",
+                          {
+                            "lineno": 26,
+                            "node": [
+                              "MethodCall",
+                              {
+                                "lineno": 26,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 26,
+                                    "name": "$this"
+                                  }
+                                ],
+                                "name": "view",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 26,
+                                      "node": "auth/login_signup",
+                                      "is_ref": false
+                                    }
+                                  ],
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 26,
+                                      "node": [
+                                        "Array",
+                                        {
+                                          "lineno": 26,
+                                          "nodes": [
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 26,
+                                                "key": "error",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 26,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 26,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "error"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ],
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 26,
+                                                "key": "msg",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 26,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 26,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "msg"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ]
+                                          ]
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": null
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 28,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 28,
+                      "name": "$username"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 28,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 28,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "susername"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 29,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 29,
+                      "name": "$email"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 29,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 29,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "semail"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 30,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 30,
+                      "name": "$password"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 30,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 30,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "spassword"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 31,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 31,
+                      "name": "$confirm_password"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 31,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 31,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "sconfirmpassword"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "If",
+                {
+                  "lineno": 32,
+                  "expr": [
+                    "BinaryOp",
+                    {
+                      "lineno": 32,
+                      "op": "!=",
+                      "left": [
+                        "Variable",
+                        {
+                          "lineno": 32,
+                          "name": "$confirm_password"
+                        }
+                      ],
+                      "right": [
+                        "Variable",
+                        {
+                          "lineno": 32,
+                          "name": "$password"
+                        }
+                      ]
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 33,
+                      "nodes": [
+                        [
+                          "Assignment",
+                          {
+                            "lineno": 35,
+                            "node": [
+                              "ArrayOffset",
+                              {
+                                "lineno": 35,
+                                "node": [
+                                  "ObjectProperty",
+                                  {
+                                    "lineno": 35,
+                                    "node": [
+                                      "Variable",
+                                      {
+                                        "lineno": 35,
+                                        "name": "$this"
+                                      }
+                                    ],
+                                    "name": "error"
+                                  }
+                                ],
+                                "expr": "password_msimatch"
+                              }
+                            ],
+                            "expr": [
+                              "Constant",
+                              {
+                                "lineno": 35,
+                                "name": "true"
+                              }
+                            ],
+                            "is_ref": false
+                          }
+                        ],
+                        [
+                          "Return",
+                          {
+                            "lineno": 36,
+                            "node": [
+                              "MethodCall",
+                              {
+                                "lineno": 36,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 36,
+                                    "name": "$this"
+                                  }
+                                ],
+                                "name": "view",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 36,
+                                      "node": "auth/login_signup",
+                                      "is_ref": false
+                                    }
+                                  ],
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 36,
+                                      "node": [
+                                        "Array",
+                                        {
+                                          "lineno": 36,
+                                          "nodes": [
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 36,
+                                                "key": "error",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 36,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 36,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "error"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ],
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 36,
+                                                "key": "msg",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 36,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 36,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "msg"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ]
+                                          ]
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": null
+                }
+              ],
+              [
+                "Echo",
+                {
+                  "lineno": 38,
+                  "nodes": [
+                    [
+                      "Variable",
+                      {
+                        "lineno": 38,
+                        "name": "$username"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                "If",
+                {
+                  "lineno": 39,
+                  "expr": [
+                    "BinaryOp",
+                    {
+                      "lineno": 39,
+                      "op": ">",
+                      "left": [
+                        "MethodCall",
+                        {
+                          "lineno": 39,
+                          "node": [
+                            "StaticMethodCall",
+                            {
+                              "lineno": 39,
+                              "class_": "User",
+                              "name": "where",
+                              "params": [
+                                [
+                                  "Parameter",
+                                  {
+                                    "lineno": 39,
+                                    "node": "email",
+                                    "is_ref": false
+                                  }
+                                ],
+                                [
+                                  "Parameter",
+                                  {
+                                    "lineno": 39,
+                                    "node": [
+                                      "Variable",
+                                      {
+                                        "lineno": 39,
+                                        "name": "$email"
+                                      }
+                                    ],
+                                    "is_ref": false
+                                  }
+                                ]
+                              ]
+                            }
+                          ],
+                          "name": "count",
+                          "params": []
+                        }
+                      ],
+                      "right": 0
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 40,
+                      "nodes": [
+                        [
+                          "Assignment",
+                          {
+                            "lineno": 42,
+                            "node": [
+                              "ArrayOffset",
+                              {
+                                "lineno": 42,
+                                "node": [
+                                  "ObjectProperty",
+                                  {
+                                    "lineno": 42,
+                                    "node": [
+                                      "Variable",
+                                      {
+                                        "lineno": 42,
+                                        "name": "$this"
+                                      }
+                                    ],
+                                    "name": "error"
+                                  }
+                                ],
+                                "expr": "email_exists"
+                              }
+                            ],
+                            "expr": [
+                              "Constant",
+                              {
+                                "lineno": 42,
+                                "name": "true"
+                              }
+                            ],
+                            "is_ref": false
+                          }
+                        ],
+                        [
+                          "Return",
+                          {
+                            "lineno": 43,
+                            "node": [
+                              "MethodCall",
+                              {
+                                "lineno": 43,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 43,
+                                    "name": "$this"
+                                  }
+                                ],
+                                "name": "view",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 43,
+                                      "node": "auth/login_signup",
+                                      "is_ref": false
+                                    }
+                                  ],
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 43,
+                                      "node": [
+                                        "Array",
+                                        {
+                                          "lineno": 43,
+                                          "nodes": [
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 43,
+                                                "key": "error",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 43,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 43,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "error"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ],
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 43,
+                                                "key": "msg",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 43,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 43,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "msg"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ]
+                                          ]
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": null
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 47,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 47,
+                      "name": "$user"
+                    }
+                  ],
+                  "expr": [
+                    "New",
+                    {
+                      "lineno": 47,
+                      "name": "User",
+                      "params": []
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "MethodCall",
+                {
+                  "lineno": 48,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 48,
+                      "name": "$user"
+                    }
+                  ],
+                  "name": "setUserName",
+                  "params": [
+                    [
+                      "Parameter",
+                      {
+                        "lineno": 48,
+                        "node": [
+                          "Variable",
+                          {
+                            "lineno": 48,
+                            "name": "$username"
+                          }
+                        ],
+                        "is_ref": false
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                "MethodCall",
+                {
+                  "lineno": 49,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 49,
+                      "name": "$user"
+                    }
+                  ],
+                  "name": "setEmail",
+                  "params": [
+                    [
+                      "Parameter",
+                      {
+                        "lineno": 49,
+                        "node": [
+                          "Variable",
+                          {
+                            "lineno": 49,
+                            "name": "$email"
+                          }
+                        ],
+                        "is_ref": false
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                "MethodCall",
+                {
+                  "lineno": 50,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 50,
+                      "name": "$user"
+                    }
+                  ],
+                  "name": "setPassword",
+                  "params": [
+                    [
+                      "Parameter",
+                      {
+                        "lineno": 50,
+                        "node": [
+                          "Variable",
+                          {
+                            "lineno": 50,
+                            "name": "$password"
+                          }
+                        ],
+                        "is_ref": false
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 51,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 51,
+                      "name": "$user"
+                    }
+                  ],
+                  "expr": [
+                    "MethodCall",
+                    {
+                      "lineno": 51,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 51,
+                          "name": "$user"
+                        }
+                      ],
+                      "name": "addUser",
+                      "params": []
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "FunctionCall",
+                {
+                  "lineno": 52,
+                  "name": "var_dump",
+                  "params": [
+                    [
+                      "Parameter",
+                      {
+                        "lineno": 52,
+                        "node": [
+                          "Variable",
+                          {
+                            "lineno": 52,
+                            "name": "$user"
+                          }
+                        ],
+                        "is_ref": false
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                "If",
+                {
+                  "lineno": 53,
+                  "expr": [
+                    "BinaryOp",
+                    {
+                      "lineno": 53,
+                      "op": "!=",
+                      "left": [
+                        "Variable",
+                        {
+                          "lineno": 53,
+                          "name": "$user"
+                        }
+                      ],
+                      "right": [
+                        "Constant",
+                        {
+                          "lineno": 53,
+                          "name": "NULL"
+                        }
+                      ]
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 54,
+                      "nodes": [
+                        [
+                          "Assignment",
+                          {
+                            "lineno": 56,
+                            "node": [
+                              "ArrayOffset",
+                              {
+                                "lineno": 56,
+                                "node": [
+                                  "ObjectProperty",
+                                  {
+                                    "lineno": 56,
+                                    "node": [
+                                      "Variable",
+                                      {
+                                        "lineno": 56,
+                                        "name": "$this"
+                                      }
+                                    ],
+                                    "name": "msg"
+                                  }
+                                ],
+                                "expr": "status"
+                              }
+                            ],
+                            "expr": "welcome",
+                            "is_ref": false
+                          }
+                        ],
+                        [
+                          "Echo",
+                          {
+                            "lineno": 57,
+                            "nodes": [
+                              [
+                                "BinaryOp",
+                                {
+                                  "lineno": 57,
+                                  "op": ".",
+                                  "left": [
+                                    "BinaryOp",
+                                    {
+                                      "lineno": 57,
+                                      "op": ".",
+                                      "left": [
+                                        "MethodCall",
+                                        {
+                                          "lineno": 57,
+                                          "node": [
+                                            "Variable",
+                                            {
+                                              "lineno": 57,
+                                              "name": "$user"
+                                            }
+                                          ],
+                                          "name": "getEmail",
+                                          "params": []
+                                        }
+                                      ],
+                                      "right": " "
+                                    }
+                                  ],
+                                  "right": [
+                                    "MethodCall",
+                                    {
+                                      "lineno": 57,
+                                      "node": [
+                                        "Variable",
+                                        {
+                                          "lineno": 57,
+                                          "name": "$user"
+                                        }
+                                      ],
+                                      "name": "getPassword",
+                                      "params": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ],
+                        [
+                          "If",
+                          {
+                            "lineno": 58,
+                            "expr": [
+                              "StaticMethodCall",
+                              {
+                                "lineno": 58,
+                                "class_": "User",
+                                "name": "loginUser",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 58,
+                                      "node": [
+                                        "MethodCall",
+                                        {
+                                          "lineno": 58,
+                                          "node": [
+                                            "Variable",
+                                            {
+                                              "lineno": 58,
+                                              "name": "$user"
+                                            }
+                                          ],
+                                          "name": "getEmail",
+                                          "params": []
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ],
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 58,
+                                      "node": [
+                                        "MethodCall",
+                                        {
+                                          "lineno": 58,
+                                          "node": [
+                                            "Variable",
+                                            {
+                                              "lineno": 58,
+                                              "name": "$user"
+                                            }
+                                          ],
+                                          "name": "getPassword",
+                                          "params": []
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "node": [
+                              "Block",
+                              {
+                                "lineno": 59,
+                                "nodes": [
+                                  [
+                                    "Return",
+                                    {
+                                      "lineno": 61,
+                                      "node": [
+                                        "MethodCall",
+                                        {
+                                          "lineno": 61,
+                                          "node": [
+                                            "Variable",
+                                            {
+                                              "lineno": 61,
+                                              "name": "$this"
+                                            }
+                                          ],
+                                          "name": "view",
+                                          "params": [
+                                            [
+                                              "Parameter",
+                                              {
+                                                "lineno": 61,
+                                                "node": "display/vault",
+                                                "is_ref": false
+                                              }
+                                            ],
+                                            [
+                                              "Parameter",
+                                              {
+                                                "lineno": 61,
+                                                "node": [
+                                                  "Array",
+                                                  {
+                                                    "lineno": 61,
+                                                    "nodes": [
+                                                      [
+                                                        "ArrayElement",
+                                                        {
+                                                          "lineno": 61,
+                                                          "key": "error",
+                                                          "value": [
+                                                            "ObjectProperty",
+                                                            {
+                                                              "lineno": 61,
+                                                              "node": [
+                                                                "Variable",
+                                                                {
+                                                                  "lineno": 61,
+                                                                  "name": "$this"
+                                                                }
+                                                              ],
+                                                              "name": "error"
+                                                            }
+                                                          ],
+                                                          "is_ref": false
+                                                        }
+                                                      ],
+                                                      [
+                                                        "ArrayElement",
+                                                        {
+                                                          "lineno": 61,
+                                                          "key": "msg",
+                                                          "value": [
+                                                            "ObjectProperty",
+                                                            {
+                                                              "lineno": 61,
+                                                              "node": [
+                                                                "Variable",
+                                                                {
+                                                                  "lineno": 61,
+                                                                  "name": "$this"
+                                                                }
+                                                              ],
+                                                              "name": "msg"
+                                                            }
+                                                          ],
+                                                          "is_ref": false
+                                                        }
+                                                      ]
+                                                    ]
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "elseifs": [],
+                            "else_": null
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": null
+                }
+              ]
+            ],
+            "is_ref": false
+          }
+        ],
+        [
+          "Method",
+          {
+            "lineno": 67,
+            "name": "signin",
+            "modifiers": [
+              "public"
+            ],
+            "params": [],
+            "nodes": [
+              [
+                "If",
+                {
+                  "lineno": 69,
+                  "expr": [
+                    "BinaryOp",
+                    {
+                      "lineno": 69,
+                      "op": "&&",
+                      "left": [
+                        "IsSet",
+                        {
+                          "lineno": 69,
+                          "nodes": [
+                            [
+                              "ArrayOffset",
+                              {
+                                "lineno": 69,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 69,
+                                    "name": "$_SERVER"
+                                  }
+                                ],
+                                "expr": "REQUEST_METHOD"
+                              }
+                            ]
+                          ]
+                        }
+                      ],
+                      "right": [
+                        "BinaryOp",
+                        {
+                          "lineno": 69,
+                          "op": "!==",
+                          "left": [
+                            "ArrayOffset",
+                            {
+                              "lineno": 69,
+                              "node": [
+                                "Variable",
+                                {
+                                  "lineno": 69,
+                                  "name": "$_SERVER"
+                                }
+                              ],
+                              "expr": "REQUEST_METHOD"
+                            }
+                          ],
+                          "right": "POST"
+                        }
+                      ]
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 70,
+                      "nodes": [
+                        [
+                          "Return",
+                          {
+                            "lineno": 71,
+                            "node": [
+                              "MethodCall",
+                              {
+                                "lineno": 71,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 71,
+                                    "name": "$this"
+                                  }
+                                ],
+                                "name": "view",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 71,
+                                      "node": "auth/login_signup",
+                                      "is_ref": false
+                                    }
+                                  ],
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 71,
+                                      "node": [
+                                        "Array",
+                                        {
+                                          "lineno": 71,
+                                          "nodes": [
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 71,
+                                                "key": "error",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 71,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 71,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "error"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ],
+                                            [
+                                              "ArrayElement",
+                                              {
+                                                "lineno": 71,
+                                                "key": "msg",
+                                                "value": [
+                                                  "ObjectProperty",
+                                                  {
+                                                    "lineno": 71,
+                                                    "node": [
+                                                      "Variable",
+                                                      {
+                                                        "lineno": 71,
+                                                        "name": "$this"
+                                                      }
+                                                    ],
+                                                    "name": "msg"
+                                                  }
+                                                ],
+                                                "is_ref": false
+                                              }
+                                            ]
+                                          ]
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": [
+                    "Else",
+                    {
+                      "lineno": 72,
+                      "node": [
+                        "If",
+                        {
+                          "lineno": 72,
+                          "expr": [
+                            "BinaryOp",
+                            {
+                              "lineno": 72,
+                              "op": "||",
+                              "left": [
+                                "UnaryOp",
+                                {
+                                  "lineno": 72,
+                                  "op": "!",
+                                  "expr": [
+                                    "IsSet",
+                                    {
+                                      "lineno": 72,
+                                      "nodes": [
+                                        [
+                                          "ArrayOffset",
+                                          {
+                                            "lineno": 72,
+                                            "node": [
+                                              "Variable",
+                                              {
+                                                "lineno": 72,
+                                                "name": "$_POST"
+                                              }
+                                            ],
+                                            "expr": "email"
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "right": [
+                                "UnaryOp",
+                                {
+                                  "lineno": 72,
+                                  "op": "!",
+                                  "expr": [
+                                    "IsSet",
+                                    {
+                                      "lineno": 72,
+                                      "nodes": [
+                                        [
+                                          "ArrayOffset",
+                                          {
+                                            "lineno": 72,
+                                            "node": [
+                                              "Variable",
+                                              {
+                                                "lineno": 72,
+                                                "name": "$_POST"
+                                              }
+                                            ],
+                                            "expr": "password"
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "node": [
+                            "Block",
+                            {
+                              "lineno": 73,
+                              "nodes": [
+                                [
+                                  "Return",
+                                  {
+                                    "lineno": 75,
+                                    "node": [
+                                      "MethodCall",
+                                      {
+                                        "lineno": 75,
+                                        "node": [
+                                          "Variable",
+                                          {
+                                            "lineno": 75,
+                                            "name": "$this"
+                                          }
+                                        ],
+                                        "name": "setHeader",
+                                        "params": [
+                                          [
+                                            "Parameter",
+                                            {
+                                              "lineno": 75,
+                                              "node": "auth/signin",
+                                              "is_ref": false
+                                            }
+                                          ]
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              ]
+                            }
+                          ],
+                          "elseifs": [],
+                          "else_": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 77,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 77,
+                      "name": "$email"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 77,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 77,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "email"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "Assignment",
+                {
+                  "lineno": 78,
+                  "node": [
+                    "Variable",
+                    {
+                      "lineno": 78,
+                      "name": "$password"
+                    }
+                  ],
+                  "expr": [
+                    "ArrayOffset",
+                    {
+                      "lineno": 78,
+                      "node": [
+                        "Variable",
+                        {
+                          "lineno": 78,
+                          "name": "$_POST"
+                        }
+                      ],
+                      "expr": "password"
+                    }
+                  ],
+                  "is_ref": false
+                }
+              ],
+              [
+                "If",
+                {
+                  "lineno": 80,
+                  "expr": [
+                    "StaticMethodCall",
+                    {
+                      "lineno": 80,
+                      "class_": "User",
+                      "name": "loginUser",
+                      "params": [
+                        [
+                          "Parameter",
+                          {
+                            "lineno": 80,
+                            "node": [
+                              "Variable",
+                              {
+                                "lineno": 80,
+                                "name": "$email"
+                              }
+                            ],
+                            "is_ref": false
+                          }
+                        ],
+                        [
+                          "Parameter",
+                          {
+                            "lineno": 80,
+                            "node": [
+                              "FunctionCall",
+                              {
+                                "lineno": 80,
+                                "name": "md5",
+                                "params": [
+                                  [
+                                    "Parameter",
+                                    {
+                                      "lineno": 80,
+                                      "node": [
+                                        "Variable",
+                                        {
+                                          "lineno": 80,
+                                          "name": "$password"
+                                        }
+                                      ],
+                                      "is_ref": false
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "is_ref": false
+                          }
+                        ],
+                        [
+                          "Parameter",
+                          {
+                            "lineno": 80,
+                            "node": [
+                              "ObjectProperty",
+                              {
+                                "lineno": 80,
+                                "node": [
+                                  "Variable",
+                                  {
+                                    "lineno": 80,
+                                    "name": "$this"
+                                  }
+                                ],
+                                "name": "msg"
+                              }
+                            ],
+                            "is_ref": false
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "node": [
+                    "Block",
+                    {
+                      "lineno": 81,
+                      "nodes": [
+                        [
+                          "MethodCall",
+                          {
+                            "lineno": 83,
+                            "node": [
+                              "Variable",
+                              {
+                                "lineno": 83,
+                                "name": "$this"
+                              }
+                            ],
+                            "name": "setHeader",
+                            "params": [
+                              [
+                                "Parameter",
+                                {
+                                  "lineno": 83,
+                                  "node": "display/vault",
+                                  "is_ref": false
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ],
+                  "elseifs": [],
+                  "else_": [
+                    "Else",
+                    {
+                      "lineno": 84,
+                      "node": [
+                        "Block",
+                        {
+                          "lineno": 84,
+                          "nodes": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ],
+            "is_ref": false
+          }
+        ],
+        [
+          "Method",
+          {
+            "lineno": 89,
+            "name": "settings",
+            "modifiers": [
+              "public"
+            ],
+            "params": [],
+            "nodes": [],
+            "is_ref": false
+          }
+        ]
+      ]
+    }
+  ]
+]

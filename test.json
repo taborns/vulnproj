@@ -1,0 +1,9 @@
+[
+  [
+    "InlineHTML",
+    {
+      "lineno": 1,
+      "data": "import sys\nfrom phply.phplex import lexer\nfrom phply.phpparse import make_parser\nimport simplejson\n\noutput = sys.stdout\nwith_lineno = True\n\ndef export(items):\n    result = []\n    if items:\n       for item in items:\n           if hasattr(item, 'generic'):\n               item = item.generic(with_lineno=with_lineno)\n           result.append(item)\n    return result\n\nparser = make_parser()\n\n# file = \"browse_form_fills.php\"\nfile = \"test_json.py\"\nwith open(file, \"r\") as f:\n    input_file = f.read()\n\nsimplejson.dump(export(parser.parse(input_file,\n                                    lexer=lexer,\n                                    tracking=with_lineno)),\n                output, indent=2)\noutput.write('\\n')\n"
+    }
+  ]
+]
