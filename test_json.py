@@ -1,6 +1,6 @@
 import sys
-from phply.phplex import lexer
-from phply.phpparse import make_parser
+from phplex import lexer
+from phpparse import make_parser
 import simplejson
 
 output = sys.stdout
