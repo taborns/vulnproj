@@ -1,9 +1,8 @@
 
 
-class Sources
-{	
+class Sources:
 # userinput variables
-	$V_USERINPUT = [
+	V_USERINPUT = [
 		'$_GET',
 		'$_POST',
 		'$_COOKIE',
@@ -21,7 +20,7 @@ class Sources
 		'$argv'
 	]
 	
-	$V_SERVER_PARAMS = [
+	V_SERVER_PARAMS = [
 		'HTTP_ACCEPT',
 		'HTTP_ACCEPT_LANGUAGE',
 		'HTTP_ACCEPT_ENCODING',
@@ -48,7 +47,7 @@ class Sources
 	]
 	
 # file content as input
-	$F_FILE_INPUT = [
+	F_FILE_INPUT = [
 		'bzread',
 		'dio_read',
 		'exif_imagetype',
@@ -69,7 +68,7 @@ class Sources
 	]
 	
 # database content as input
-	$F_DATABASE_INPUT = [
+	F_DATABASE_INPUT = [
 		'mysql_fetch_array',
 		'mysql_fetch_assoc',
 		'mysql_fetch_field',
@@ -89,7 +88,7 @@ class Sources
 	]
 	
 # other functions as input
-	$F_OTHER_INPUT = [
+	F_OTHER_INPUT = [
 		'get_headers',
 		'getallheaders',
 		'get_browser',
@@ -101,4 +100,3 @@ class Sources
 	
 #	'getenv' and 'apache_getenv' 
 # will be automatically added if 'putenv' or 'apache_setenv' with userinput is found
-}
