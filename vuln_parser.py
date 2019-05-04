@@ -30,3 +30,10 @@ with open(file, "r") as f:
 parsed_result = export(parser.parse(input_file, lexer=phplex.lexer.clone(), tracking=with_lineno))
 
 print(parsed_result)
+
+class PVV:
+	test="skdjf;"
+
+class PVF:
+	test="lskdjf"
+
