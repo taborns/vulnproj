@@ -17,13 +17,16 @@ def export(items):
 
 parser = make_parser()
 
-file = "browse_form_fills.php"
+file = "test.php"
 # file = "test_json.py"
 with open(file, "r") as f:
     input_file = f.read()
 
-simplejson.dump(export(parser.parse(input_file,
-                                    lexer=lexer,
-                                    tracking=with_lineno)),
-                output, indent=2)
-output.write('\n')
+lessons = export(parser.parse(input_file,
+                                    lexer=lexer.clone(),
+                                    tracking=with_lineno))
+
+for lesson in lessons:
+    lesson
+    break;
+#output.write('\n')

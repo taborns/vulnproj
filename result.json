@@ -1,0 +1,140 @@
+[
+  [
+    "Echo",
+    {
+      "nodes": [
+        [
+          "Variable",
+          {
+            "lineno": 2,
+            "name": "$_GET"
+          }
+        ]
+      ],
+      "lineno": 2
+    }
+  ],
+  [
+    "Class",
+    {
+      "implements": [],
+      "name": "A",
+      "traits": [],
+      "extends": null,
+      "lineno": 5,
+      "nodes": [
+        [
+          "ClassVariables",
+          {
+            "nodes": [
+              [
+                "ClassVariable",
+                {
+                  "initial": 12,
+                  "lineno": 6,
+                  "name": "$a"
+                }
+              ]
+            ],
+            "modifiers": [
+              "public",
+              "static"
+            ],
+            "lineno": 6
+          }
+        ],
+        [
+          "ClassVariables",
+          {
+            "nodes": [
+              [
+                "ClassVariable",
+                {
+                  "initial": 16,
+                  "lineno": 7,
+                  "name": "$g"
+                }
+              ]
+            ],
+            "modifiers": [
+              "public"
+            ],
+            "lineno": 7
+          }
+        ],
+        [
+          "Method",
+          {
+            "modifiers": [
+              "public",
+              "static",
+              "final"
+            ],
+            "name": "testMe",
+            "is_ref": false,
+            "params": [],
+            "lineno": 8,
+            "nodes": []
+          }
+        ],
+        [
+          "ClassVariables",
+          {
+            "nodes": [
+              [
+                "ClassVariable",
+                {
+                  "initial": 16,
+                  "lineno": 10,
+                  "name": "$c"
+                }
+              ]
+            ],
+            "modifiers": [
+              "private"
+            ],
+            "lineno": 10
+          }
+        ]
+      ],
+      "type": null
+    }
+  ],
+  [
+    "Assignment",
+    {
+      "node": [
+        "Variable",
+        {
+          "lineno": 13,
+          "name": "$data"
+        }
+      ],
+      "expr": [
+        "New",
+        {
+          "params": [],
+          "lineno": 13,
+          "name": "A"
+        }
+      ],
+      "is_ref": false,
+      "lineno": 13
+    }
+  ],
+  [
+    "MethodCall",
+    {
+      "node": [
+        "Variable",
+        {
+          "lineno": 14,
+          "name": "$data"
+        }
+      ],
+      "params": [],
+      "lineno": 14,
+      "name": "testMe"
+    }
+  ]
+]
