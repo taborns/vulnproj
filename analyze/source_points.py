@@ -1,5 +1,7 @@
+
+
 class Sources:
-	# userinput variables
+# userinput variables
 	V_USERINPUT = [
 		'$_GET',
 		'$_POST',
@@ -44,7 +46,11 @@ class Sources:
 		'PHP_SELF'
 	]
 	
+<<<<<<< HEAD
 	# file content as input
+=======
+# file content as input
+>>>>>>> d38e38c4e11877aefad6cca413cee697fb6fbc50
 	F_FILE_INPUT = [
 		'bzread',
 		'dio_read',
@@ -65,7 +71,11 @@ class Sources:
 		'zip_read'
 	]
 	
+<<<<<<< HEAD
 	# database content as input
+=======
+# database content as input
+>>>>>>> d38e38c4e11877aefad6cca413cee697fb6fbc50
 	F_DATABASE_INPUT = [
 		'mysql_fetch_array',
 		'mysql_fetch_assoc',
@@ -85,7 +95,11 @@ class Sources:
 		'sqlite_fetch_string'
 	]
 	
+<<<<<<< HEAD
 	# other functions as input
+=======
+# other functions as input
+>>>>>>> d38e38c4e11877aefad6cca413cee697fb6fbc50
 	F_OTHER_INPUT = [
 		'get_headers',
 		'getallheaders',
@@ -96,5 +110,10 @@ class Sources:
 		'import_request_variables'
 	]
 	
+<<<<<<< HEAD
 	#	'getenv' and 'apache_getenv' 
 	# will be automatically added if 'putenv' or 'apache_setenv' with userinput is found
+=======
+#	'getenv' and 'apache_getenv' 
+# will be automatically added if 'putenv' or 'apache_setenv' with userinput is found
+>>>>>>> d38e38c4e11877aefad6cca413cee697fb6fbc50

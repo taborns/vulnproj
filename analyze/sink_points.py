@@ -1,4 +1,5 @@
-from analyze.securing_functions import *
+
+from securing_functions import *
 
 NAME_XSS = 'Cross-Site Scripting';
 F_XSS = {

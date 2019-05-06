@@ -1,6 +1,5 @@
 
-class Tokens
-{	
+class Tokens:
 	# tokens to ignore while scanning
 	$T_IGNORE = [
 		T_BAD_CHARACTER,
@@ -143,7 +142,6 @@ class Tokens
 		':',
 		'?'
 	]
-}	
 	
 # define own token for include ending
 T_INCLUDE_END = 380
