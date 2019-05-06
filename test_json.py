@@ -2,6 +2,8 @@ import sys
 from phplex import lexer
 from phpparse import make_parser
 import simplejson
+from analyze.scanner import Scanner
+from analyze.printer import Printer
 
 output = sys.stdout
 with_lineno = True
@@ -22,11 +24,17 @@ file = "test.php"
 with open(file, "r") as f:
     input_file = f.read()
 
-lessons = export(parser.parse(input_file,
+tokens = export(parser.parse(input_file,
                                     lexer=lexer.clone(),
                                     tracking=with_lineno))
 
-for lesson in lessons:
-    lesson
-    break;
-#output.write('\n')
+
+
+
+scanner = Scanner(tokens)
+
+printer = Printer(scanner.scan().vulns)
+printer.display()
+
+# simplejson.dump(tokens,output, indent=2)
+# output.write('\n')

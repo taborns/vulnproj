@@ -1,5 +1,5 @@
 
-$F_SECURING_BOOL = [
+F_SECURING_BOOL = [
 	'is_bool',
 	'is_double',
 	'is_float',
@@ -28,7 +28,7 @@ $F_SECURING_BOOL = [
 ]
 	
 # securing functions for every vulnerability
-$F_SECURING_STRING = [
+F_SECURING_STRING = [
 	'intval',
 	'floatval',
 	'doubleval',
@@ -99,7 +99,7 @@ $F_SECURING_STRING = [
 ]
 
 # functions that insecures the string again 
-$F_INSECURING_STRING = [
+F_INSECURING_STRING = [
 	'base64_decode',
 	'htmlspecialchars_decode',
 	'html_entity_decode',
@@ -130,14 +130,14 @@ $F_INSECURING_STRING = [
 ]
 
 # securing functions for XSS
-$F_SECURING_XSS = [
+F_SECURING_XSS = [
 	'htmlentities',
 	'htmlspecialchars',
 	'highlight_string',
 ]	
 
 # securing functions for SQLi
-$F_SECURING_SQL = [
+F_SECURING_SQL = [
 	'addslashes',
 	'dbx_escape_string',
 	'db2_escape_string',
@@ -156,34 +156,34 @@ $F_SECURING_SQL = [
 ]	
 
 # securing functions for RCE with e-modifier in preg_**
-$F_SECURING_PREG = [
+F_SECURING_PREG = [
 	'preg_quote'
 ]
 
 # securing functions for file handling
-$F_SECURING_FILE = [
+F_SECURING_FILE = [
 	'basename',
 	'dirname',
 	'pathinfo'
 ]
 
 # securing functions for OS command execution
-$F_SECURING_SYSTEM = [
+F_SECURING_SYSTEM = [
 	'escapeshellarg',
 	'escapeshellcmd'
 ]	
 
 # securing XPath injection
-$F_SECURING_XPATH = [
+F_SECURING_XPATH = [
 	'addslashes'
 ]
 
 # securing LDAP injection
-$F_SECURING_LDAP = [
+F_SECURING_LDAP = [
 ]
 
 # all specific securings
-$F_SECURES_ALL = $F_SECURING_XSS + $F_SECURING_SQL + $F_SECURING_PREG + $F_SECURING_FILE + $F_SECURING_SYSTEM + $F_SECURING_XPATH	
+F_SECURES_ALL = F_SECURING_XSS + F_SECURING_SQL + F_SECURING_PREG + F_SECURING_FILE + F_SECURING_SYSTEM + F_SECURING_XPATH	
 	
 # securing functions that work only when embedded in quotes
-$F_QUOTE_ANALYSIS = $F_SECURING_SQL;
+F_QUOTE_ANALYSIS = F_SECURING_SQL;

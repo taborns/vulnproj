@@ -1,9 +1,6 @@
-
-
-class Sources
-{	
-# userinput variables
-	$V_USERINPUT = [
+class Sources:
+	# userinput variables
+	V_USERINPUT = [
 		'$_GET',
 		'$_POST',
 		'$_COOKIE',
@@ -21,7 +18,7 @@ class Sources
 		'$argv'
 	]
 	
-	$V_SERVER_PARAMS = [
+	V_SERVER_PARAMS = [
 		'HTTP_ACCEPT',
 		'HTTP_ACCEPT_LANGUAGE',
 		'HTTP_ACCEPT_ENCODING',
@@ -32,7 +29,7 @@ class Sources
 		'HTTP_REFERER',
 		'HTTP_USER_AGENT',
 		'HTTP_X_FORWARDED_FOR',
-	# all HTTP_ headers can be tainted
+		# all HTTP_ headers can be tainted
 		'PHP_AUTH_DIGEST',
 		'PHP_AUTH_USER',
 		'PHP_AUTH_PW',
@@ -47,8 +44,8 @@ class Sources
 		'PHP_SELF'
 	]
 	
-# file content as input
-	$F_FILE_INPUT = [
+	# file content as input
+	F_FILE_INPUT = [
 		'bzread',
 		'dio_read',
 		'exif_imagetype',
@@ -68,8 +65,8 @@ class Sources
 		'zip_read'
 	]
 	
-# database content as input
-	$F_DATABASE_INPUT = [
+	# database content as input
+	F_DATABASE_INPUT = [
 		'mysql_fetch_array',
 		'mysql_fetch_assoc',
 		'mysql_fetch_field',
@@ -88,8 +85,8 @@ class Sources
 		'sqlite_fetch_string'
 	]
 	
-# other functions as input
-	$F_OTHER_INPUT = [
+	# other functions as input
+	F_OTHER_INPUT = [
 		'get_headers',
 		'getallheaders',
 		'get_browser',
@@ -99,6 +96,5 @@ class Sources
 		'import_request_variables'
 	]
 	
-#	'getenv' and 'apache_getenv' 
-# will be automatically added if 'putenv' or 'apache_setenv' with userinput is found
-}
+	#	'getenv' and 'apache_getenv' 
+	# will be automatically added if 'putenv' or 'apache_setenv' with userinput is found
