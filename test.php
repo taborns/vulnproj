@@ -1,7 +1,4 @@
 <?php 
-
-   datame(); 
-
-   function datame(){}
-    
-?>
+   foreach($data as $da=>$val) {
+       echo $val;
+   }
