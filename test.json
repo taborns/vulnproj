@@ -1,164 +1,99 @@
 [
   [
-    "Class",
+    "If",
     {
-      "implements": [],
-      "name": "A",
-      "traits": [],
-      "extends": null,
-      "lineno": 2,
-      "nodes": [
-        [
-          "Method",
-          {
-            "modifiers": [
-              "public"
-            ],
-            "name": "__construct",
-            "is_ref": false,
-            "params": [
-              [
-                "FormalParameter",
-                {
-                  "default": null,
-                  "is_ref": false,
-                  "type": null,
-                  "lineno": 3,
-                  "name": "$a"
-                }
-              ],
-              [
-                "FormalParameter",
-                {
-                  "default": null,
-                  "is_ref": false,
-                  "type": null,
-                  "lineno": 3,
-                  "name": "$b"
-                }
-              ]
-            ],
-            "lineno": 3,
-            "nodes": [
-              [
-                "Echo",
-                {
-                  "nodes": [
-                    [
-                      "Variable",
-                      {
-                        "lineno": 4,
-                        "name": "$a"
-                      }
-                    ]
-                  ],
-                  "lineno": 4
-                }
-              ],
-              [
-                "Assignment",
-                {
-                  "node": [
-                    "Variable",
-                    {
-                      "lineno": 5,
-                      "name": "$e"
-                    }
-                  ],
-                  "expr": [
-                    "MethodCall",
-                    {
-                      "node": [
-                        "Variable",
-                        {
-                          "lineno": 5,
-                          "name": "$this"
-                        }
-                      ],
-                      "params": [
-                        [
-                          "Parameter",
-                          {
-                            "node": [
-                              "Variable",
-                              {
-                                "lineno": 5,
-                                "name": "$a"
-                              }
-                            ],
-                            "is_ref": false,
-                            "lineno": 5
-                          }
-                        ]
-                      ],
-                      "lineno": 5,
-                      "name": "data"
-                    }
-                  ],
-                  "is_ref": false,
-                  "lineno": 5
-                }
-              ],
-              [
-                "Echo",
+      "node": [
+        "Block",
+        {
+          "nodes": [
+            [
+              "Echo",
+              {
+                "nodes": [
+                  "if"
+                ],
+                "lineno": 4
+              }
+            ]
+          ],
+          "lineno": 3
+        }
+      ],
+      "expr": [
+        "BinaryOp",
+        {
+          "left": [
+            "Variable",
+            {
+              "lineno": 3,
+              "name": "$a"
+            }
+          ],
+          "right": [
+            "Constant",
+            {
+              "lineno": 3,
+              "name": "true"
+            }
+          ],
+          "lineno": 3,
+          "op": "=="
+        }
+      ],
+      "else_": [
+        "Else",
+        {
+          "node": [
+            "If",
+            {
+              "node": [
+                "Block",
                 {
                   "nodes": [
                     [
-                      "Variable",
+                      "Echo",
                       {
-                        "lineno": 6,
-                        "name": "$e"
+                        "nodes": [
+                          "else if"
+                        ],
+                        "lineno": 7
                       }
                     ]
                   ],
                   "lineno": 6
                 }
-              ]
-            ]
-          }
-        ],
-        [
-          "Method",
-          {
-            "modifiers": [
-              "public"
-            ],
-            "name": "data",
-            "is_ref": false,
-            "params": [
-              [
-                "FormalParameter",
+              ],
+              "expr": [
+                "BinaryOp",
                 {
-                  "default": null,
-                  "is_ref": false,
-                  "type": null,
-                  "lineno": 9,
-                  "name": "$test"
-                }
-              ]
-            ],
-            "lineno": 9,
-            "nodes": [
-              [
-                "Echo",
-                {
-                  "nodes": [
-                    [
-                      "Variable",
-                      {
-                        "lineno": 10,
-                        "name": "$test"
-                      }
-                    ]
+                  "left": [
+                    "Variable",
+                    {
+                      "lineno": 6,
+                      "name": "$a"
+                    }
                   ],
-                  "lineno": 10
+                  "right": [
+                    "Constant",
+                    {
+                      "lineno": 6,
+                      "name": "False"
+                    }
+                  ],
+                  "lineno": 6,
+                  "op": "=="
                 }
-              ]
-            ]
-          }
-        ]
+              ],
+              "else_": null,
+              "lineno": 6,
+              "elseifs": []
+            }
+          ],
+          "lineno": 6
+        }
       ],
-      "type": null
+      "lineno": 3,
+      "elseifs": []
     }
   ]
 ]
