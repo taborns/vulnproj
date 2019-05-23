@@ -8,5 +8,6 @@ class Printer:
             print "[*] %s" % vuln
             for vuln_ in vuln.children:
                 print"     [*] %s" % vuln_
+                print "has children", len(vuln_.children)
             
             print "---" * 20
