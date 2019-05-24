@@ -1,99 +1,37 @@
 [
   [
-    "If",
+    "Function",
     {
-      "node": [
-        "Block",
-        {
-          "nodes": [
-            [
-              "Echo",
+      "is_ref": false,
+      "nodes": [
+        [
+          "Return",
+          {
+            "node": [
+              "Variable",
               {
-                "nodes": [
-                  "if"
-                ],
-                "lineno": 4
+                "lineno": 3,
+                "name": "$data"
               }
-            ]
-          ],
-          "lineno": 3
-        }
+            ],
+            "lineno": 3
+          }
+        ]
       ],
-      "expr": [
-        "BinaryOp",
-        {
-          "left": [
-            "Variable",
-            {
-              "lineno": 3,
-              "name": "$a"
-            }
-          ],
-          "right": [
-            "Constant",
-            {
-              "lineno": 3,
-              "name": "true"
-            }
-          ],
-          "lineno": 3,
-          "op": "=="
-        }
+      "params": [
+        [
+          "FormalParameter",
+          {
+            "default": null,
+            "is_ref": false,
+            "type": null,
+            "lineno": 2,
+            "name": "$data"
+          }
+        ]
       ],
-      "else_": [
-        "Else",
-        {
-          "node": [
-            "If",
-            {
-              "node": [
-                "Block",
-                {
-                  "nodes": [
-                    [
-                      "Echo",
-                      {
-                        "nodes": [
-                          "else if"
-                        ],
-                        "lineno": 7
-                      }
-                    ]
-                  ],
-                  "lineno": 6
-                }
-              ],
-              "expr": [
-                "BinaryOp",
-                {
-                  "left": [
-                    "Variable",
-                    {
-                      "lineno": 6,
-                      "name": "$a"
-                    }
-                  ],
-                  "right": [
-                    "Constant",
-                    {
-                      "lineno": 6,
-                      "name": "False"
-                    }
-                  ],
-                  "lineno": 6,
-                  "op": "=="
-                }
-              ],
-              "else_": null,
-              "lineno": 6,
-              "elseifs": []
-            }
-          ],
-          "lineno": 6
-        }
-      ],
-      "lineno": 3,
-      "elseifs": []
+      "lineno": 2,
+      "name": "testMe"
     }
   ]
 ]

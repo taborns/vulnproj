@@ -1,8 +1,10 @@
+from analyze.sink_points import *
 class TokenName:
     T_ASSIGNMENT = 'Assignment'
     T_VARIABLE = 'Variable'
     T_ARRAYOFFSET = 'ArrayOffset'
     T_FUNCTION = 'Function'
+    T_RETURN = 'Return'
     T_FUNCTIONCALL = 'FunctionCall'
     T_CLASS = 'Class'
     T_METHOD = 'Method'
@@ -20,12 +22,12 @@ class TokenName:
     T_ELSEIF = "ElseIf"
     T_BLOCK = "Block"
     T_CONSTANT = 'Constant'
-    T_XSS = 'xss'
-    T_HTTP_HEADER = 'http-header'
-    T_SESSION_FIXATION  = 'sessiion-fixation'
-    T_CODE = 'code-execution'
-    T_REFLECTION = 'name-reflection'
-    T_FILE_INCLUDE = 'file-include'
+    T_XSS = NAME_XSS
+    T_HTTP_HEADER = NAME_HTTP_HEADER
+    T_SESSION_FIXATION  = NAME_SESSION_FIXATION
+    T_CODE = NAME_CODE
+    T_REFLECTION = NAME_REFLECTION
+    T_FILE_INCLUDE = NAME_FILE_INCLUDE
     T_FILE_READ = 'file-read'
     T_FILE_AFFECT = 'file-affect'
     T_EXEC = 'command-execution'
@@ -41,7 +43,7 @@ class SourceToken:
         self.name = name
     
     def isuserinput(self):
-        return True
+        return False
 
 class Utility:
     @staticmethod
@@ -94,7 +96,8 @@ class VulnTree:
         self.vulns = []
     
     def addVuln(self, vulnTreeNode):
-        self.vulns.append(vulnTreeNode)
+        if vulnTreeNode:
+            self.vulns.append(vulnTreeNode)
 
     def merge(self, vulnTree):
         for vuln in vulnTree.vulns:
@@ -103,6 +106,70 @@ class VulnTree:
     def length(self):
         return len(self.vulns)
     
+class Sink:
+    def __init__(self, raw_data, scanner):
+        self.scanner = scanner
+        self.raw_data = raw_data
+        self.name = raw_data[0]
+        self.values = self.__getValue()
+        self.vulnTreeNode = None
+        self.lnr = raw_data[1]['lineno']
+        self.checkForVuln()
+
+    def __getValue(self):
+        if self.raw_data[1].get('expr'):
+            return [Utility.getTokenObject( self.raw_data[1]['expr'], self.scanner)]
+        
+        elif self.raw_data[1].get('node'):
+            return [Utility.getTokenObject( self.raw_data[1]['node'], self.scanner)]
+           
+        elif self.raw_data[1].get('nodes'):
+            parsed_nodes = []
+            for node in self.raw_data[1].get('nodes'):
+                parsed_nodes.append( Utility.getTokenObject( node, self.scanner ))
+            
+            return parsed_nodes
+        return []
+
+    def isVulnerable(self):
+        return self.vulnTreeNode
+    
+    def checkForVuln(self):
+        sinkInfo, vulnName = self.getVulnerability()
+
+        #loop through all params 
+        if len(sinkInfo[0]) >0 and sinkInfo[0][0] == 0:
+            values = self.values
+        else:
+            value_ind_list = sinkInfo[0]
+
+            values = []
+            for value_ind in value_ind_list:
+                values.append(self.values[value_ind-1])
+        for value in values:
+            if hasattr(value, 'secure_from'):
+                if self.name.lower() in value.secure_from:
+                    return None
+
+                elif value.vulnTreeNode:
+                    vuln = self.getVulnerability()
+                    if not self.vulnTreeNode:
+                        self.vulnTreeNode = VulnTreeNode('A sink function is called with unsanitized parameter. This causes potential %s' % ( vulnName.upper()), self.lnr, self.__str__())
+
+                    self.vulnTreeNode.addPatch( vuln[0][1] )
+
+                    if value.vulnTreeNode:
+                        self.vulnTreeNode.addChildren( value.vulnTreeNode)
+            
+
+
+    def getVulnerability(self):
+        sink_info, vuln = self.scanner.getSink(self.name)
+        return sink_info, vuln
+    
+    def __str__(self):
+        params = ','.join([value.__str__() for value in self.values])
+        return '%s(%s)' % (self.name.lower(), params)
 
 class VulnTreeNode:
 
@@ -111,6 +178,7 @@ class VulnTreeNode:
         self.line = line
         self.snippet = snippet
         self.children = []
+        self.patch_methods = set()
 
     def addChildren(self, vulnTreeNode):
         self.children.append( vulnTreeNode )
@@ -130,6 +198,10 @@ class VulnTreeNode:
             return "%s at line %s : '%s' " % (self.title, self.line, str(self.snippet))
 
         return "%s at line %s " % (self.title, self.line)
+    
+    def addPatch(self, methodNames):
+        methodNames = set(methodNames)
+        self.patch_methods = self.patch_methods.union( methodNames)
 
 class ForEachKey:
     def __init__(self, name,lnr, value):
@@ -285,16 +357,21 @@ class ArrayElement:
         self.key = raw_data[1]['key']
         self.element = Utility.getTokenObject(raw_data[1]['value'], scanner)
         self.lnr = raw_data[1]['lineno']
+        self.secure_from = set()
         self.userinput = self.isuserinput() 
-
+        self.__scanVuln()
     def isuserinput(self):
-
-        if hasattr( self.element , 'vulnTreeNode'):
-            self.vulnTreeNode = VulnTreeNode( 'Array value reaches sensitive sink point', self.lnr, self.__str__ )
-            self.vulnTreeNode.addChildren(self.element.vulnTreeNode)
         
         return self.element.isuserinput()
     
+    def __scanVuln(self):
+        if self.element.vulnTreeNode:
+            self.vulnTreeNode = self.element.vulnTreeNode
+        
+        if hasattr(self.element, 'secure_from'):
+            self.secure_from = self.secure_from.union( self.element.secure_from)
+
+
     def __str__(self):
         if self.key:
             return '%s => %s' % (self.key , self.element.__str__())
@@ -306,9 +383,13 @@ class Array:
         self.scanner = scanner
         self.userinput = False
         self.vulnTreeNode = None
- 
+        self.secure_from = set()
         self.lnr = raw_data[1]['lineno']
         self.elements = self.__getElements( raw_data[1]['nodes'] )
+        self.__scanVuln()
+    
+    def isuserinput():
+        return self.userinput
 
     def __getElements(self, nodes):
         elements = []
@@ -316,14 +397,24 @@ class Array:
         for node in nodes:
             element = ArrayElement( node, self.scanner )
             elements.append(element)
-
-            if element.isuserinput():
-                self.vulnTreeNode = VulnTreeNode(title="User input reached sensitve sink at %d : %s "%( element.lnr, element.__str__() ) )
-                self.vulnTreeNode.addChildren(element.vulnTreeNode)
-                self.userinput = True
         
         return elements
-    
+
+    def __scanVuln(self):
+        for element in self.elements:
+            if element.isuserinput():
+                
+                if not self.vulnTreeNode:
+                    self.vulnTreeNode = VulnTreeNode("Unsanitized user input is used as an array element ",  self.lnr, self.__str__()  )
+                
+                if element.vulnTreeNode:
+                    self.vulnTreeNode.addChildren(element.vulnTreeNode)
+                
+                if hasattr(element, 'secure_from'):
+                    self.secure_from = self.secure_from.intersection( element.secure_from)
+                
+                self.userinput = True
+
     def isuserinput(self):
         return self.userinput
     
@@ -346,9 +437,11 @@ class BinaryOp:
     def isuserinput(self):
         if self.op == TokenName.T_VULNBINARYOP:
             if self.right.isuserinput() or self.left.isuserinput():
-                self.vulnTreeNode = VulnTreeNode('User input reaches senstive sink', self.lnr, self.__str__())   
-                self.vulnTreeNode.append(self.right.vulnTreeNode)
-                self.vulnTreeNode.append(self.left.vulnTreeNode)
+                self.vulnTreeNode = VulnTreeNode('Unsanitized input is used in the binary operation', self.lnr, self.__str__())   
+                if self.right.vulnTreeNode:
+                    self.vulnTreeNode.addChildren(self.right.vulnTreeNode)
+                if self.left.vulnTreeNode:
+                    self.vulnTreeNode.addChildren(self.left.vulnTreeNode)
                 return True     
 
         return False
@@ -369,6 +462,7 @@ class ArrayOffset():
         self.lnr = raw_data[1]['node'][1]['lineno']
         self.key = raw_data[1]['expr']
         self.userinput = self.isuserinput()
+        self.secure_from = {}
 
     def __str__(self):
         return "%s[%s]" % (self.name , self.key)
@@ -425,7 +519,10 @@ class VarAccess:
         self.var = self.__getVar()
         self.userinput = self.getUserInput()
         self.vulnTreeNode = self.getVulnTeeNode()
+        self.secure_from = set() 
+        self.__getSecureFrom() 
 
+        
     def isuserinput(self):
         return self.userinput;
 
@@ -445,7 +542,11 @@ class VarAccess:
         
         elif self.name in self.scanner.sources:
             return SourceToken(self.name)
-        
+    
+    def __getSecureFrom(self):
+        if self.var and hasattr(self.var, 'secure_from'):
+            self.secure_from = self.secure_from.union(self.var.secure_from)
+
     
     def __str__(self):
         return self.name;
@@ -458,26 +559,70 @@ class FunctionCall:
         self.name = raw_data[1]['name']
         self.lnr = raw_data[1]['lineno']
         self.param_raw_data = raw_data[1]['params']
+        self.params = self.getFuncCallParms()
         self.vulnTreeNode = None
+        self.secure_from = set()
         self.userinput = self.isuserinput()
-        self.secure_from = {}
 
     def __str__(self):
-        params =  self.getFunction().params
+        params = self.getFuncCallParms()
         params_ = []
         for param in params:
             params_.append( str(param))
 
         return self.name + '('  + ','.join(params_) + ')'
+    
+    #returns list of parameter objects 
+    def getFuncCallParms(self):
+        
+        function = self.getFunction()
+        
+        if function:
+            params =  function.params
+        else:
+            params = [FunctionParam(  param, self.scanner) for param in self.param_raw_data]
+        
+        return params
+
 
     def isuserinput(self):
         from analyze.scanner import Scanner
+
         if self.scanner.functions.get(self.name):
             return not self.taintScanFunction()
-        print "I am here"
-        #get all securing funcs
-        self.secure_from.union(self.scanner.securingFunc( self.name ) )
-        
+
+        elif self.scanner.getSink( self.name ):
+            sinkInfo, vulnName = self.scanner.getSink( self.name ) 
+            
+            #loop through all params 
+            if len(sinkInfo[0]) >0 and sinkInfo[0][0] == 0:
+                params = self.params
+            else:
+                param_ind_list = sinkInfo[0]
+                params = []
+                for param_ind in param_ind_list:
+                    params.append(self.params[param_ind-1])
+            not_secure = False 
+            for param in params:
+                if hasattr(param, 'secure_from'):
+                    if self.name.lower() in param.secure_from:
+                        continue
+                    elif param.isuserinput() or ( hasattr(param, 'isSecure')):
+                        if not self.vulnTreeNode:
+                            self.vulnTreeNode = VulnTreeNode('A sink function is called with unsanitized parameter. This causes potential %s' % ( vulnName.upper()), self.lnr, self.__str__())
+                                            
+                        self.vulnTreeNode.addPatch(sinkInfo[1] )
+                        if param.vulnTreeNode:
+                            self.vulnTreeNode.addChildren( param.vulnTreeNode)
+
+                        not_secure = True
+
+            return not_secure
+
+        elif self.scanner.securingFor( self.name ):
+            self.secure_from = self.secure_from.union( self.scanner.securingFor( self.name ))    
+            return False
+
         return False
 
     def getFunction(self, scanner=None):
@@ -488,13 +633,9 @@ class FunctionCall:
     def taintScanFunction(self, scanner=None):
         function = self.getFunction(scanner)
         param_names = []
-
         #loops through the function parameters
         for function_param in function.params:
             param_names.append( function_param.name )
-
-        print param_names, self.name
-
         function_params = self.getParams(param_names )
         to_taint_params_index = []
         for index, function_param in enumerate(function_params):
@@ -503,11 +644,12 @@ class FunctionCall:
 
         function.taintParams(to_taint_params_index)
         function.tainted = True 
-        vulnTree = function.scanVuln()
+        vulnTree = function.scanVuln(function_params)
         
         if vulnTree.vulns:
             self.vulnTreeNode = VulnTreeNode("A function call triggered sensitive sink point", self.lnr, self.__str__())
             self.vulnTreeNode.addChildrenFromTree( vulnTree )
+        self.secure_from = self.secure_from.union( function.secure_from)
 
         function.tainted = False
         return function.isSecure()
@@ -526,6 +668,7 @@ class Literal():
     def __init__(self, data):
         self.name = 'literal'
         self.value = data
+        self.vulnTreeNode = None
 
     def isuserinput(self):
         return False
@@ -537,7 +680,8 @@ class Constant:
     def __init__(self, data):
         self.name = data[1]['name']
         self.lnr = data[1]['lineno']
-    
+        self.vulnTreeNode = None
+
     def isuserinput(self):
         return False
 
@@ -584,26 +728,70 @@ class VarDeclared():
         return None
 
     def getVulnTreeNode(self):
+        
         if hasattr(self.value, 'vulnTreeNode') and self.value.vulnTreeNode:
-            if self.value.vulnTreeNode.vulnerable():
-                self.vulnTreeNode = VulnTreeNode('Unsanitized value is assigned to the variable', self.lnr, self.__str__())
-                self.vulnTreeNode.addChildren(self.value.vulnTreeNode)
+            self.vulnTreeNode = VulnTreeNode('Unsanitized value is assigned to the variable', self.lnr, self.__str__())
+            self.vulnTreeNode.addChildren(self.value.vulnTreeNode)
+
         if hasattr(self.value, 'secure_from'):
             self.secure_from = self.secure_from.union(self.value.secure_from)
 
     def __str__(self):
         return "%s = %s" % ( self.name, str(self.value))
 
-class FunctionDefParam():
-    def __init__(self, parameterData):
-        self.name = parameterData[1]['name']
-        self.value = Literal(None)
+class FunctionParam:
+    def __init__(self, parameterData, scanner):
+        self.node = parameterData[1]['node']
+        self.value = Utility.getTokenObject(self.node, scanner)
         self.lnr = parameterData[1]['lineno']
+        self.secure_from = set()
+        self.vulnTreeNode = None
+        self.__setParams()
 
-class Function():
+    def isuserinput(self):
+        return self.value.isuserinput
+
+    def __setParams(self):
+        if hasattr(self.value, 'secure_from'):
+            self.secure_from.union( self.value.secure_from )
+        
+        if self.value.vulnTreeNode:
+            self.vulnTreeNode = self.value.vulnTreeNode
+
+    def __str__(self):
+        return self.value.__str__()
+
+class Return:
+    def __init__(self, raw_data, function, scanner):
+        self.function = function
+        self.raw_data = raw_data
+        self.scanner = scanner
+        self.lnr = self.raw_data[1]['lineno']
+        self.value = Utility.getTokenObject(self.raw_data[1]['node'], scanner)
+        self.vulnTreeNode = None
+        self.secure_from = set()
+        self.__scanVuln()
+
+    def isUserInput(self):
+        return self.value.isuserinput()
+
+    def __scanVuln(self):
+        if self.value.isuserinput():
+            self.vulnTreeNode = VulnTreeNode('%s returns usanitized data' % (self.function.name), self.lnr, self.__str__())
+            
+            if self.value.vulnTreeNode:
+                self.vulnTreeNode.addChildren(self.value.vulnTreeNode)
+            
+        if hasattr(self.value, 'secure_from'):
+            self.secure_from = self.secure_from.union( self.value.secure_from )
+            self.function.secure_from = self.function.secure_from.union( self.secure_from)
+
+    def __str__(self):
+        return 'return %s' %(self.value.__str__())
+class Function:
     def __init__(self, raw_data,scanner):
         from analyze.scanner import Scanner
-
+        self.secure_from = set()
         self.mainScanner = scanner
         self.raw_raw_data = raw_data
         self.raw_data = raw_data[1]
@@ -613,23 +801,26 @@ class Function():
         self.lnr = self.raw_data['lineno']
         self.params = self.set_params()
         self.taintable_params = self.set_params()
-
+        self.userinput = False 
         #control if the tainted version of variables is being used
         self.tainted = False 
         self.vulnTreeNode = None
         self.getVulns()
 
+    def isuserinput(self):
+        return self.userinput
+
     def getVulns(self):
         vulnTree = self.scanVuln()
         if vulnTree.length() > 0:
-            self.vulnTreeNode = VulnTreeNode('The function is suscetible to potential security attack', self.lnr, self.name)
+            self.vulnTreeNode = VulnTreeNode('The function is suscetible to potential security vulnerability', self.lnr, self.name)
             self.vulnTreeNode.addChildrenFromTree( vulnTree )
         
     def __unicode__(self):
         return self.name
 
     def isSecure(self):
-        return not self.vulnTreeNode or not self.vulnTreeNode.vulnerable()
+        return not self.scanner.vulnTree.length()
 
     def getRawRawData(self):
         return self.raw_raw_data
@@ -648,18 +839,22 @@ class Function():
         
         return params
        
-    def scanVuln(self):
+    def scanVuln(self, paramVariables=None):
 
         self.scanner.in_function = True
+        self.scanner.context_object = self
         self.scanner.context_name = self.name
         param_list = self.params if not self.tainted else self.taintable_params
-
+        if paramVariables:
+            param_list = paramVariables
         for paramVar in param_list:
             self.scanner.variables[paramVar.name] = paramVar
 
         vulnTree = self.scanner.scan()
 
         return vulnTree
+    
+
 
 class MethodCall(FunctionCall):
     this = '$this'
@@ -669,6 +864,7 @@ class MethodCall(FunctionCall):
         self.callerMethodName = callerMethodName
         self.raw_data = raw_data
         self.vulnTreeNode = None
+        self.secure_from = set()
 
         self.objct = self.__getObjct(raw_data[1].get('node', None))
         self.name = self.raw_data[1]['name']
@@ -678,6 +874,7 @@ class MethodCall(FunctionCall):
         self.userinput = self.isuserinput()
 
     def __getObjct(self, node):
+
         if not node:
             return None
         if node[0] == TokenName.T_VARIABLE:
@@ -691,16 +888,16 @@ class MethodCall(FunctionCall):
     def isuserinput(self):
         if not self.scanner.functions.get(self.name, None) and self.callerMethodName and self.objct == MethodCall.this:
             self.scanner.yet_to_scan_functions[self.name] = self.callerMethodName
-        
+
         #if the method is called inside the class($this) just look for the function 
         #current scanner object is the class's 
         elif self.objct == MethodCall.this or not self.objct:
+
             return not self.taintScanFunction()
 
 
         #look for the class from which the object is instantiated then look for the method and check if it is secure
         elif self.scanner.variables.get(self.objct):
-
             objVar =  self.scanner.variables.get(self.objct)
             if hasattr(objVar, 'instance') and objVar.instance:
                 pClass =  self.getClass(objVar.instance)
@@ -708,10 +905,7 @@ class MethodCall(FunctionCall):
                     if self.getFunction(pClass.scanner):
                         return not self.taintScanFunction(pClass.scanner)
         
-          
-        elif self.getFunction():
-            return not self.taintScanFunction()
-
+      
         return False
 
     

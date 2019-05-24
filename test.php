@@ -1,10 +1,10 @@
 <?php 
 
-function testMe($data) {
-    echo $data;
-}
+    class A{
+    
+        public function __construct($data) {
+            echo $data;
+        }
+    }
 
-
-testMe($_GET['tabor']);
-
-
+    $a = new A($_GET['tabor']);

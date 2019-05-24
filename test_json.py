@@ -33,5 +33,6 @@ tokens = export(parser.parse(input_file,
 
 scanner = Scanner(tokens)
 printer = Printer(scanner.scan())
+
 # simplejson.dump(tokens,output, indent=2)
 # output.write('\n')

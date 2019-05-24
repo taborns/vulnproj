@@ -14,6 +14,7 @@ class Scanner:
             self.setScanParams()
 
         self.in_function = False
+        self.context_object = self
         self.in_class = False 
         self.context_name = TokenName.GLOBAL_SCOPE
         self.getSources()
@@ -26,15 +27,16 @@ class Scanner:
     def getSinks(self):
 
         sinks = {
-                        TokenName.T_XSS : F_XSS,
-                        TokenName.T_SQLI : F_DATABASE
+                        NAME_XSS : F_XSS,
+                        NAME_HTTP_HEADER : F_DATABASE,
+                        NAME_CODE : F_CODE
         }
 
         return sinks
 
     def securingFor(self, funcName):
-        securingFuncs = {}
-
+        securingFuncs = set()
+        funcName = funcName.lower()
         for sinkKey in self.sinks:
             vulnSinks = self.sinks[sinkKey]
             for vulnSink in vulnSinks:
@@ -43,7 +45,16 @@ class Scanner:
 
         
         return securingFuncs
+    
+    def getSink(self, funcName):
+        funcName = funcName.lower()
+        for sinkKey in self.sinks:
+            vulnSinks = self.sinks[sinkKey]
 
+            if vulnSinks.get( funcName):
+                return vulnSinks.get(funcName), sinkKey
+        
+        return None
 
     def mergeScannerData(self, otherScanner):
         self.variables.update(otherScanner.variables) 
@@ -72,10 +83,8 @@ class Scanner:
 
     def scan(self):
         for token in self.tokens:
-
             #Variable Assignment 
             if token[0] == TokenName.T_ASSIGNMENT:
-                print "T_ASSIGNMENT"
 
                 assignment = Assignment(self, raw_data=token)
                 varDeclared = VarDeclared(assignment)
@@ -87,7 +96,6 @@ class Scanner:
 
             #Function defintion 
             elif token[0] == TokenName.T_FUNCTION or token[0] == TokenName.T_METHOD:
-                print "T_FUNC, T_METHOD"
 
                 function = Function(token, self)
                 self.functions[function.name] = function
@@ -104,14 +112,11 @@ class Scanner:
 
             elif token[0] == TokenName.T_FUNCTIONCALL:
                 functionCall = FunctionCall(token, self)
-                print "T_FUNCTION CALL", functionCall.name
-
                 if functionCall.vulnTreeNode:
                     self.vulnTree.addVuln(functionCall.vulnTreeNode)
 
             #class 
             elif token[0] == TokenName.T_CLASS:
-                print "T_CLASS"
                 pClass = PClass(token, self)
                 self.classes[pClass.name] = pClass
 
@@ -120,7 +125,6 @@ class Scanner:
 
             #method call 
             elif token[0] == TokenName.T_METHODCALL:
-                print "T_METHODCALL"
                 methodName = None 
 
                 if self.in_function:
@@ -131,78 +135,37 @@ class Scanner:
                     self.vulnTree.addVuln(methodCall.vulnTreeNode)
     
             elif token[0] == TokenName.T_NEW:
-                print "T_NEW"
                 classInst = NewClass(token, self)
-                self.vulnTreeNode.append(classInst.vulnTreeNode)
+                self.vulnTree.addVuln(classInst.vulnTreeNode)
             
             elif token[0] == TokenName.T_ARRAY:
-                print "T_ARRAY"
                 array = Array(token, self)
-                self.vulnTreeNode.append(array.vulnTreeNode)
+                self.vulnTree.addVuln(array.vulnTreeNode)
             
             elif token[0] == TokenName.T_BINARYOP:
-                print "T_BINARYOP"
                 binaryOp = BinaryOp(token, self)
-                self.vulnTreeNode.append(binaryOp.vulnTreeNode)
+                self.vulnTree.addVuln(binaryOp.vulnTreeNode)
 
             elif token[0] == TokenName.T_FOREACH:
-                print "FOREACH"
                 foreach = ForEach(token, self)
             
             elif token[0] == TokenName.T_FOR:
-                print "For loop"
                 forloop = ForLoop(token, self)
             
             elif token[0] == TokenName.T_IF:
-                print "If Loop"
                 ifblock = IfMain(token, self)
                 self.vulnTree.addVuln(ifblock.vulnTreeNode)
-                
+
+            elif token[0] == TokenName.T_RETURN:
+                if self.in_function:
+                    returnstatement = Return(token, self.context_object, self)
+                    self.vulnTree.addVuln(returnstatement.vulnTreeNode)
+                        
             #Found Sink 
-            elif token[0].lower() in self.sinks:
-
-                sink_infos = self.sinks[token[0].lower()]
-                nodes = []
-                if len(sink_infos[0])> 0:
-                    if sink_infos[0][0] == 0:
-                        nodes = token[1]['nodes']
-
-                for token_node in nodes:
-                    tokenObject = Utility.getTokenObject( token_node, self)
-
-                    if hasattr(tokenObject, 'secure_from') and token_node[0].lower() not in tokenObject.secure_from:
-                        self.vulnTree.addVuln( VulnTreeNode('A sink function is called with unsanitized parameter', 10))
-                        if tokenObject.vulnTreeNode:
-                            self.vulnTree.addVuln( tokenObject.vulnTreeNode)
-
-                    # if token_node[0] == TokenName.T_VARIABLE:
-                    #     varAcess = VarAccess(self, token_node)
-                        
-                    #     if varAcess.isuserinput():
-                    #         if self.context_name == TokenName.GLOBAL_SCOPE:
-                    #             vulnTreeNode = VulnTreeNode('Userinput reaches sensitive sink', varAcess.lnr, "%s %s" % (token[0].lower(), str(varAcess) ))
-                    #             vulnTreeNode.addChildren( varAcess.vulnTreeNode)
-                            
-                    #         elif self.in_function:
-                    #             vulnTreeNode = VulnTreeNode('Userinput reaches sensitive sink when function %s() is called' %( token[0].lower()), varAcess.lnr, str(varAcess.__str__()) )
-
-                    #         self.vulnTree.addVuln(vulnTreeNode)
-                    
-                    # elif token_node[0] == TokenName.T_FUNCTIONCALL:
-
-                    #     functionCall = FunctionCall(token_node, self)
-                        
-                    #     if functionCall.isuserinput():
-                    #         vulnBlock = VulnBlock('Call triggers vulnerability in function %s' %(functionCall.name))
-                    #         self.vulnTreeNode.addVuln(vulnBlock)
-                    #         self.vulnTreeNode.append(functionCall.vulnTreeNode)
-
-                    # elif token_node[0] == TokenName.T_ARRAYOFFSET:
-
-                    #     arrayOffset = ArrayOffset(token_node, self)
-                    #     if arrayOffset.isuserinput():
-                    #             vulnTree = VulnTreeNode('Userinput reaches sensitive sink', arrayOffset.lnr, arrayOffset.__str__() )
-                    #             self.vulnTree.addVuln(vulnTree)
+            elif self.getSink(token[0].lower()):
+                    sink = Sink(token, self)
+                    if sink.isVulnerable():
+                        self.vulnTree.addVuln( sink.vulnTreeNode)
                     
         return self.vulnTree
 
