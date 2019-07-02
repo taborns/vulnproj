@@ -1,0 +1,6 @@
+aman/
+dvwa/
+*.zip
+\.DS_Store
+test_zip/
+test_zip.zip

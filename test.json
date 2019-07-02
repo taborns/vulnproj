@@ -1,37 +1,196 @@
 [
   [
-    "Function",
+    "InlineHTML",
     {
+      "data": "<html>\n<head/>\n<body>\n<div>\n",
+      "lineno": 1
+    }
+  ],
+  [
+    "Assignment",
+    {
+      "node": [
+        "Variable",
+        {
+          "lineno": 6,
+          "name": "$tainted"
+        }
+      ],
+      "expr": [
+        "ArrayOffset",
+        {
+          "node": [
+            "Variable",
+            {
+              "lineno": 6,
+              "name": "$_GET"
+            }
+          ],
+          "expr": "UserData",
+          "lineno": 6
+        }
+      ],
       "is_ref": false,
-      "nodes": [
-        [
-          "Return",
-          {
-            "node": [
-              "Variable",
+      "lineno": 6
+    }
+  ],
+  [
+    "Assignment",
+    {
+      "node": [
+        "Variable",
+        {
+          "lineno": 7,
+          "name": "$sanitized"
+        }
+      ],
+      "expr": [
+        "FunctionCall",
+        {
+          "params": [
+            [
+              "Parameter",
               {
-                "lineno": 3,
-                "name": "$data"
+                "node": [
+                  "Variable",
+                  {
+                    "lineno": 7,
+                    "name": "$tainted"
+                  }
+                ],
+                "is_ref": false,
+                "lineno": 7
               }
             ],
-            "lineno": 3
-          }
-        ]
+            [
+              "Parameter",
+              {
+                "node": [
+                  "Constant",
+                  {
+                    "lineno": 7,
+                    "name": "FILTER_SANITIZE_EMAIL"
+                  }
+                ],
+                "is_ref": false,
+                "lineno": 7
+              }
+            ]
+          ],
+          "lineno": 7,
+          "name": "filter_var"
+        }
       ],
-      "params": [
+      "is_ref": false,
+      "lineno": 7
+    }
+  ],
+  [
+    "If",
+    {
+      "node": [
+        "Assignment",
+        {
+          "node": [
+            "Variable",
+            {
+              "lineno": 9,
+              "name": "$tainted"
+            }
+          ],
+          "expr": [
+            "Variable",
+            {
+              "lineno": 9,
+              "name": "$sanitized"
+            }
+          ],
+          "is_ref": false,
+          "lineno": 9
+        }
+      ],
+      "expr": [
+        "FunctionCall",
+        {
+          "params": [
+            [
+              "Parameter",
+              {
+                "node": [
+                  "Variable",
+                  {
+                    "lineno": 8,
+                    "name": "$sanitized"
+                  }
+                ],
+                "is_ref": false,
+                "lineno": 8
+              }
+            ],
+            [
+              "Parameter",
+              {
+                "node": [
+                  "Constant",
+                  {
+                    "lineno": 8,
+                    "name": "FILTER_VALIDATE_EMAIL"
+                  }
+                ],
+                "is_ref": false,
+                "lineno": 8
+              }
+            ]
+          ],
+          "lineno": 8,
+          "name": "filter_var"
+        }
+      ],
+      "else_": [
+        "Else",
+        {
+          "node": [
+            "Assignment",
+            {
+              "node": [
+                "Variable",
+                {
+                  "lineno": 11,
+                  "name": "$tainted"
+                }
+              ],
+              "expr": "",
+              "is_ref": false,
+              "lineno": 11
+            }
+          ],
+          "lineno": 10
+        }
+      ],
+      "lineno": 8,
+      "elseifs": []
+    }
+  ],
+  [
+    "Echo",
+    {
+      "nodes": [
         [
-          "FormalParameter",
+          "Variable",
           {
-            "default": null,
-            "is_ref": false,
-            "type": null,
-            "lineno": 2,
-            "name": "$data"
+            "lineno": 13,
+            "name": "$tainted"
           }
         ]
       ],
-      "lineno": 2,
-      "name": "testMe"
+      "lineno": 13
+    }
+  ],
+  [
+    "InlineHTML",
+    {
+      "data": "</div>\n<h1>Hello World!</h1>\n</body>\n</html>",
+      "lineno": 15
     }
   ]
 ]

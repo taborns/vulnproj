@@ -1,0 +1,621 @@
+   [*] Sensitive sink used at line 14 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 18 : '$_POST[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/login.php) Unsanitized value is assigned to the variable at line 14 : '$user = $_POST[username]'
+     [*] Sensitive sink used at line 14 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 14 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 18 : '$_POST[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/login.php) Unsanitized value is assigned to the variable at line 14 : '$user = $_POST[username]'
+     [*] Sensitive sink used at line 14 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_GET[security]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_GET[security]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/session-input.php) Unsanitized value is assigned to the variable at line 12 : '$_SESSION[id] = $_POST[id]'
+     [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/session-input.php) Unsanitized value is assigned to the variable at line 12 : '$_SESSION[id] = $_POST[id]'
+     [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/cookie-input.php) A sink function is called with unsanitized parameter. This causes potential SESSION FIXATION at line 12 : 'setcookie(id,$_POST[id])'
+     [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/cookie-input.php) A sink function is called with unsanitized parameter. This causes potential SESSION FIXATION at line 12 : 'setcookie(id,$_POST[id])'
+     [*] Sensitive sink used at line 12 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 38 : '$_POST[token]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+     [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+     [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) at line requires if(array_key_exists(phrase,$_POST) && array_key_exists(token,$_POST)) : '35'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+       [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 38 : '$_POST[token]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+     [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+     [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) at line requires if(array_key_exists(phrase,$_POST) && array_key_exists(token,$_POST)) : '35'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/javascript/index.php) Unsanitized value is assigned to the variable at line 37 : '$phrase = $_POST[phrase]'
+       [*] Sensitive sink used at line 37 : '$_POST[phrase]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 56 : 'http:// . $_SERVER[SERVER_NAME] . $_SERVER[PHP_SELF]'
+     [*] Sensitive sink used at line 56 : '$_SERVER[PHP_SELF]'
+     [*] Unsanitized input is used inside the binary operation  at line 56 : 'http:// . $_SERVER[SERVER_NAME]'
+       [*] Sensitive sink used at line 56 : '$_SERVER[SERVER_NAME]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 56 : 'http:// . $_SERVER[SERVER_NAME] . $_SERVER[PHP_SELF]'
+     [*] Sensitive sink used at line 56 : '$_SERVER[PHP_SELF]'
+     [*] Unsanitized input is used inside the binary operation  at line 56 : 'http:// . $_SERVER[SERVER_NAME]'
+       [*] Sensitive sink used at line 56 : '$_SERVER[SERVER_NAME]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 13 : '$_POST[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$user = $_POST[username]'
+     [*] Sensitive sink used at line 8 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 13 : '$_POST[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$user = $_POST[username]'
+     [*] Sensitive sink used at line 8 : '$_POST[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ' . $pass . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ' . $pass'
+       [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ''
+         [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+             [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ' . $pass . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ' . $pass'
+       [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user . ' AND password = ''
+         [*] Unsanitized input is used inside the binary operation  at line 12 : 'SELECT * FROM `users` WHERE user = ' . $user'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+             [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 5 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 13 : '$_GET[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 8 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 13 : '$_GET[password]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/brute/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$user = $_GET[username]'
+     [*] Sensitive sink used at line 8 : '$_GET[username]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_POST[id]'
+     [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_POST[id]'
+     [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_REQUEST[id]'
+         [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_REQUEST[id]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_REQUEST[id]'
+         [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_REQUEST[id]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/medium.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 51 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 52 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/medium.php) Unsanitized value is assigned to the variable at line 51 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 51 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/medium.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 51 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 52 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/medium.php) Unsanitized value is assigned to the variable at line 51 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 51 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 16 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 21 : '$_POST[password_current]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/impossible.php) Unsanitized value is assigned to the variable at line 11 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 11 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 11 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 16 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 21 : '$_POST[password_current]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/impossible.php) Unsanitized value is assigned to the variable at line 11 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 11 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/low.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 50 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 51 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/low.php) Unsanitized value is assigned to the variable at line 50 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 50 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/low.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 50 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 51 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/low.php) Unsanitized value is assigned to the variable at line 50 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 50 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_POST[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/captcha/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_POST[password_new]'
+     [*] Sensitive sink used at line 8 : '$_POST[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_POST[id]'
+     [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_POST[id]'
+     [*] Sensitive sink used at line 5 : '$_POST[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 8 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+         [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] A sink function is called with unsanitized parameter. This causes potential SQL INJECTION at line 9 : 'mysqli_query($GLOBALS[___mysqli_ston],$getid)'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 8 : '$getid = SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+       [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+         [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+             [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+         [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] A sink function is called with unsanitized parameter. This causes potential SQL INJECTION at line 9 : 'mysqli_query($GLOBALS[___mysqli_ston],$getid)'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 8 : '$getid = SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+       [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ';'
+         [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+             [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_GET[id]'
+     [*] Sensitive sink used at line 5 : '$_GET[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+         [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] A sink function is called with unsanitized parameter. This causes potential SQL INJECTION at line 9 : 'mysqli_query($GLOBALS[___mysqli_ston],$getid)'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$getid = SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+       [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+         [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+             [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+     [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+     [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+         [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] A sink function is called with unsanitized parameter. This causes potential SQL INJECTION at line 9 : 'mysqli_query($GLOBALS[___mysqli_ston],$getid)'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$getid = SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+       [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id . ' LIMIT 1;'
+         [*] Unsanitized input is used inside the binary operation  at line 8 : 'SELECT first_name, last_name FROM users WHERE user_id = ' . $id'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+             [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/sqli_blind/source/high.php) Unsanitized value is assigned to the variable at line 5 : '$id = $_COOKIE[id]'
+     [*] Sensitive sink used at line 5 : '$_COOKIE[id]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) at line requires if(stripos($_SERVER[HTTP_REFERER],$_SERVER[SERVER_NAME]) !== false) : '5'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+       [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) at line requires if(stripos($_SERVER[HTTP_REFERER],$_SERVER[SERVER_NAME]) !== false) : '5'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/medium.php) Unsanitized value is assigned to the variable at line 7 : '$pass_new = $_GET[password_new]'
+       [*] Sensitive sink used at line 7 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_current]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 10 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$pass_curr = $_GET[password_current]'
+     [*] Sensitive sink used at line 8 : '$_GET[password_current]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_current]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 10 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$pass_curr = $_GET[password_current]'
+     [*] Sensitive sink used at line 8 : '$_GET[password_current]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 6 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 5 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 6 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 5 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 8 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 9 : '$_GET[password_conf]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csrf/source/high.php) Unsanitized value is assigned to the variable at line 8 : '$pass_new = $_GET[password_new]'
+     [*] Sensitive sink used at line 8 : '$_GET[password_new]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[default]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/xss_d/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$default = $_GET[default]'
+     [*] Sensitive sink used at line 5 : '$_GET[default]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[default]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/xss_d/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$default = $_GET[default]'
+     [*] Sensitive sink used at line 5 : '$_GET[default]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[callback]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csp/source/jsonp.php) Unsanitized value is assigned to the variable at line 5 : '$callback = $_GET[callback]'
+     [*] Sensitive sink used at line 5 : '$_GET[callback]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_GET[callback]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/csp/source/jsonp.php) Unsanitized value is assigned to the variable at line 5 : '$callback = $_GET[callback]'
+     [*] Sensitive sink used at line 5 : '$_GET[callback]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/medium.php) Unsanitized value is assigned to the variable at line 5 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 8 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 8 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/impossible.php) Unsanitized value is assigned to the variable at line 8 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 8 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/vulnerabilities/exec/source/low.php) Unsanitized value is assigned to the variable at line 5 : '$target = $_REQUEST[ip]'
+     [*] Sensitive sink used at line 5 : '$_REQUEST[ip]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] Sensitive sink used at line 4 : '$_GET[page]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) at line The function detect is suscetible to potential security vulnerability : '105'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) Unsanitized value is assigned to the variable at line 118 : '$_REQUEST[IDS_request_uri] = $_SERVER[REQUEST_URI]'
+       [*] Sensitive sink used at line 118 : '$_SERVER[REQUEST_URI]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) at line requires if(unknown) : '119'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) Unsanitized value is assigned to the variable at line 120 : '$_REQUEST[IDS_user_agent] = $_SERVER[HTTP_USER_AGENT]'
+         [*] Sensitive sink used at line 120 : '$_SERVER[HTTP_USER_AGENT]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) at line The function detect is suscetible to potential security vulnerability : '105'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) Unsanitized value is assigned to the variable at line 118 : '$_REQUEST[IDS_request_uri] = $_SERVER[REQUEST_URI]'
+       [*] Sensitive sink used at line 118 : '$_SERVER[REQUEST_URI]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) at line requires if(unknown) : '119'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/docs/examples/cakephp/ids.php) Unsanitized value is assigned to the variable at line 120 : '$_REQUEST[IDS_user_agent] = $_SERVER[HTTP_USER_AGENT]'
+         [*] Sensitive sink used at line 120 : '$_SERVER[HTTP_USER_AGENT]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) at line The function __construct is suscetible to potential security vulnerability : '146'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) Unsanitized value is assigned to the variable at line 164 : 'None = $_SERVER[REMOTE_ADDR]'
+       [*] Sensitive sink used at line 164 : '$_SERVER[REMOTE_ADDR]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) at line requires if($_SERVER[REMOTE_ADDR] != 127.0.0.1) : '163'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) Unsanitized value is assigned to the variable at line 164 : 'None = $_SERVER[REMOTE_ADDR]'
+         [*] Sensitive sink used at line 164 : '$_SERVER[REMOTE_ADDR]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) at line The function __construct is suscetible to potential security vulnerability : '146'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) Unsanitized value is assigned to the variable at line 164 : 'None = $_SERVER[REMOTE_ADDR]'
+       [*] Sensitive sink used at line 164 : '$_SERVER[REMOTE_ADDR]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) at line requires if($_SERVER[REMOTE_ADDR] != 127.0.0.1) : '163'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Database.php) Unsanitized value is assigned to the variable at line 164 : 'None = $_SERVER[REMOTE_ADDR]'
+         [*] Sensitive sink used at line 164 : '$_SERVER[REMOTE_ADDR]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) at line The function execute is suscetible to potential security vulnerability : '69'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) Unsanitized value is assigned to the variable at line 81 : '$_SERVER[SERVER_ADDR] = $_SERVER[LOCAL_ADDR]'
+       [*] Sensitive sink used at line 81 : '$_SERVER[LOCAL_ADDR]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) at line requires if(unknown) : '80'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) Unsanitized value is assigned to the variable at line 81 : '$_SERVER[SERVER_ADDR] = $_SERVER[LOCAL_ADDR]'
+         [*] Sensitive sink used at line 81 : '$_SERVER[LOCAL_ADDR]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) at line The function execute is suscetible to potential security vulnerability : '69'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) Unsanitized value is assigned to the variable at line 81 : '$_SERVER[SERVER_ADDR] = $_SERVER[LOCAL_ADDR]'
+       [*] Sensitive sink used at line 81 : '$_SERVER[LOCAL_ADDR]'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) at line requires if(unknown) : '80'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/Log/Composite.php) Unsanitized value is assigned to the variable at line 81 : '$_SERVER[SERVER_ADDR] = $_SERVER[LOCAL_ADDR]'
+         [*] Sensitive sink used at line 81 : '$_SERVER[LOCAL_ADDR]'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) at line The function parse is suscetible to potential security vulnerability : '61'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) Unsanitized value is assigned to the variable at line 69 : '$var = parseImplementation($var,$type,$allow_null)'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) A function call triggered sensitive sink point at line 69 : 'parseImplementation($var,$type,$allow_null)'
+         [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) parseImplementation returns usanitized data at line 114 : 'return $var'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) at line The function parseImplementation is suscetible to potential security vulnerability : '113'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) parseImplementation returns usanitized data at line 114 : 'return $var'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) Unsanitized value is assigned to the variable at line 106 : '$var = $var'
+         [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) Unsanitized value is assigned to the variable at line 69 : '$var = parseImplementation($var,$type,$allow_null)'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) A function call triggered sensitive sink point at line 69 : 'parseImplementation($var,$type,$allow_null)'
+             [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser.php) parseImplementation returns usanitized data at line 114 : 'return $var'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/StringHashParser.php) at line The function parseFile is suscetible to potential security vulnerability : '36'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/StringHashParser.php) parseFile returns usanitized data at line 42 : 'return $ret'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) at line The function element is suscetible to potential security vulnerability : '68'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) at line The function row is suscetible to potential security vulnerability : '91'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) row returns usanitized data at line 93 : 'return start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . end($tag)'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 96 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . end($tag)'
+         [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 96 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 95 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape)'
+             [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) A function call triggered sensitive sink point at line 96 : 'element($tag,$contents,$attr,$escape)'
+               [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+             [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 95 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+'
+               [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 94 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape)'
+                 [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) A function call triggered sensitive sink point at line 95 : 'element($tag,$contents,$attr,$escape)'
+                   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) at line The function element is suscetible to potential security vulnerability : '68'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) at line The function row is suscetible to potential security vulnerability : '91'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) row returns usanitized data at line 93 : 'return start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . end($tag)'
+       [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 96 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . end($tag)'
+         [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 96 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape) . 
+'
+           [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 95 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+ . element($tag,$contents,$attr,$escape)'
+             [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) A function call triggered sensitive sink point at line 96 : 'element($tag,$contents,$attr,$escape)'
+               [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+             [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 95 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape) . 
+'
+               [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) Unsanitized input is used inside the binary operation  at line 94 : 'start($tag,$attr) . 
+ . element($tag,$contents,$attr,$escape)'
+                 [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) A function call triggered sensitive sink point at line 95 : 'element($tag,$contents,$attr,$escape)'
+                   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/Printer.php) element returns usanitized data at line 69 : 'return start($tag,$attr) . unknown . end($tag)'
+------------------------------------------------------------
+   [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser/Native.php) at line The function parseImplementation is suscetible to potential security vulnerability : '11'
+     [*] (a4382eae62225c300efd6e378132cc28/DVWA-master/external/phpids/0.6/lib/IDS/vendors/htmlpurifier/HTMLPurifier/VarParser/Native.php) parseImplementation returns usanitized data at line 12 : 'return evalExpression($expr)'
+------------------------------------------------------------
