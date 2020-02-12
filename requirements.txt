@@ -1,7 +1,7 @@
 appnope==0.1.0
 backports.shutil-get-terminal-size==1.0.0
 decorator==4.4.0
-Django==1.11.20
+Django==1.11.28
 django-filter==2.0.0
 djangorestframework==3.9.2
 enum34==1.1.6
